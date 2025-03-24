@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 
 from ..db import store
 from ..services.pricing import PricingService, StaticPriceFeed
 from ..services.valuation import ValuationEngine
+from .auth import current_user
 
 router = APIRouter()
 
@@ -12,12 +13,12 @@ _valuation = ValuationEngine(_pricing)
 
 
 @router.get("/portfolios")
-def list_portfolios():
+def list_portfolios(user: str = Depends(current_user)):
     return [{"id": p.id, "name": p.name} for p in store.portfolios.values()]
 
 
 @router.get("/portfolios/{portfolio_id}")
-def get_portfolio(portfolio_id: str):
+def get_portfolio(portfolio_id: str, user: str = Depends(current_user)):
     p = store.portfolios.get(portfolio_id)
     if not p:
         raise HTTPException(404, "portfolio not found")
@@ -25,7 +26,7 @@ def get_portfolio(portfolio_id: str):
 
 
 @router.get("/portfolios/{portfolio_id}/valuation")
-def valuation(portfolio_id: str):
+def valuation(portfolio_id: str, user: str = Depends(current_user)):
     p = store.portfolios.get(portfolio_id)
     if not p:
         raise HTTPException(404, "portfolio not found")
