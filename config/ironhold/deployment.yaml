@@ -1,0 +1,26 @@
+# Ironhold Capital — production deployment profile.
+# This file is consumed by the bootstrapper on the Ironhold cluster and
+# overrides the defaults from backend/app/config.py.
+
+customer: ironhold
+region: eu-west-1
+environment: production
+
+base_currency: USD
+reporting_currency: USD
+
+# Ironhold runs an isolated VPC. All outbound traffic goes via the
+# customer's NAT gateway; no direct egress is permitted.
+network:
+  egress_via: customer-nat
+  allow_public_endpoints: false
+
+# The audit trail is covered by the customer's regulatory obligations
+# (see IRN-079). Retention overrides the product default.
+audit:
+  retention_years: 7
+  immutable_storage: true
+
+market_data:
+  primary_feed: goldcrest
+  fallback_feed: refinitiv
