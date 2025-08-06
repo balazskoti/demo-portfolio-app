@@ -1,0 +1,28 @@
+# Harborlight Wealth Management — production deployment profile.
+# Consumed by the bootstrapper on the Harborlight cluster.
+
+customer: harborlight
+region: us-east-1
+environment: production
+
+base_currency: USD
+
+# Harborlight supports reporting in the client's preferred currency.
+# See HBL-071.
+features:
+  per_account_display_currency: true
+  household_grouping: true
+
+branding:
+  product_display_name: "Harborlight Portal"
+  logo_path: "public/harborlight/logo.svg"
+  primary_color: "#1b4d6a"
+  accent_color: "#d9a441"
+
+statements:
+  cadence: monthly
+  delivery: secure_portal_and_email
+  format: pdf
+
+market_data:
+  primary_feed: bloomberg_b-pipe
