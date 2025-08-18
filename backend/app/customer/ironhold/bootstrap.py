@@ -1,12 +1,10 @@
-"""Wiring for the Ironhold deployment.
-
-Called from the application factory when ``settings.customer == "ironhold"``.
-Registers Ironhold-only routers, dependencies and scheduled jobs.
-"""
+"""Wiring for the Ironhold deployment."""
 
 from fastapi import FastAPI
 
+from . import risk  # noqa: F401  (ensures risk module is importable at boot)
+
 
 def install(app: FastAPI) -> None:
-    # Subsequent commits on this branch register routers/services here.
+    # Register Ironhold routers & services here.
     return None
