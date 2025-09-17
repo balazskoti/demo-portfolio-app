@@ -1,0 +1,36 @@
+/* Harborlight Portal theme — HBL-037.
+   Applied when the build is produced with VITE_CUSTOMER=harborlight. */
+
+:root {
+  --brand-primary: #1b4d6a;
+  --brand-accent: #d9a441;
+  --brand-bg: #f6f1e7;
+  --brand-text: #1a1a1a;
+  --font-display: "Georgia", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--brand-primary);
+}
+
+.app-header {
+  background: var(--brand-primary);
+  color: white;
+  padding: 12px 24px;
+}
+
+.app-header .logo {
+  color: var(--brand-accent);
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+
+.nav-card__value { color: var(--brand-primary); }
