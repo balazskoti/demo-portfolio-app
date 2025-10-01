@@ -2,7 +2,9 @@
 
 from fastapi import FastAPI
 
+from . import esg  # noqa: F401  (pre-trade screening hook is imported on boot)
+
 
 def install(app: FastAPI) -> None:
-    # Subsequent commits on this branch register routers/services here.
+    # Subsequent commits register routers/services here.
     return None
