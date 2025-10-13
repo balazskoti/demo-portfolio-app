@@ -1,0 +1,22 @@
+# Stress shocks — agreed with Ironhold risk committee, rev 3 (IRN-058).
+scenarios:
+  - name: equity_down_10
+    shocks:
+      equity: -0.10
+      fund: -0.08
+      fixed_income: 0.00
+      derivative: -0.10
+  - name: credit_widening
+    shocks:
+      fixed_income: -0.05
+      equity: -0.02
+  - name: rates_plus_100bp
+    shocks:
+      fixed_income: -0.07
+      equity: -0.01
+  - name: risk_off_combo
+    shocks:
+      equity: -0.15
+      fund: -0.12
+      fixed_income: -0.04
+      derivative: -0.18
