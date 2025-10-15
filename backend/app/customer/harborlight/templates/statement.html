@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Harborlight monthly statement</title>
+  <style>
+    body { font-family: Georgia, serif; color: #1a1a1a; }
+    header { background: #1b4d6a; color: #d9a441; padding: 18px 24px; }
+    h1 { margin: 0; font-size: 22px; }
+    .kpi { display: inline-block; margin: 12px 24px 12px 0; }
+    .kpi .label { color: #556; font-size: 12px; }
+    .kpi .value { font-size: 20px; color: #1b4d6a; }
+    table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    th, td { border-bottom: 1px solid #ddd; padding: 6px 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <header><h1>Harborlight Wealth — Monthly Statement</h1></header>
+  <section>
+    <p>Household: {{ household_id }}</p>
+    <p>Period: {{ period_start }} &ndash; {{ period_end }}</p>
+    <div class="kpi"><div class="label">Opening</div><div class="value">{{ opening_balance }}</div></div>
+    <div class="kpi"><div class="label">Closing</div><div class="value">{{ closing_balance }}</div></div>
+    <div class="kpi"><div class="label">Net change</div><div class="value">{{ net_change }}</div></div>
+  </section>
+  <table>
+    <thead><tr><th>Activity</th><th>Amount</th></tr></thead>
+    <tbody>
+      {% for line in lines %}
+      <tr><td>{{ line.description }}</td><td>{{ line.amount }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
