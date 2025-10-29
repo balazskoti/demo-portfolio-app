@@ -13,5 +13,5 @@ from .tax_lots import CostBasisMethod
 class HarborlightAccountConfig:
     account_id: str
     default_cost_basis: CostBasisMethod = CostBasisMethod.FIFO
-    display_currency: str = "USD"
+    display_currency: str = "USD"        # HBL-071
     household_id: str | None = None
