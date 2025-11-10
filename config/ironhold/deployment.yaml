@@ -24,3 +24,8 @@ audit:
 market_data:
   primary_feed: goldcrest
   fallback_feed: refinitiv
+
+# Retention extension ratified 2025-11 (IRN-079).
+audit_extensions:
+  includes_request_body_hash: true
+  includes_mfa_token_id: true
