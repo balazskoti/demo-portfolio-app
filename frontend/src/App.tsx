@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Dashboard } from "./pages/Dashboard";
 import { Portfolios } from "./pages/Portfolios";
 import { PositionList } from "./pages/PositionList";
+import { Households } from "./pages/Households";
 import { loadTheme } from "./themes";
 
 const CUSTOMER = import.meta.env.VITE_CUSTOMER ?? "";
@@ -19,12 +20,15 @@ export function App() {
         <span className="logo">{BRAND_NAME}</span>
       </header>
       <nav>
-        <Link to="/">Dashboard</Link> | <Link to="/portfolios">Portfolios</Link>
+        <Link to="/">Dashboard</Link> |{" "}
+        <Link to="/portfolios">Portfolios</Link> |{" "}
+        <Link to="/households">Households</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/portfolios" element={<Portfolios />} />
         <Route path="/portfolios/:id" element={<PositionList />} />
+        <Route path="/households" element={<Households />} />
       </Routes>
     </BrowserRouter>
   );
